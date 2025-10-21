@@ -55,7 +55,31 @@
   })
 
   cw2.addEventListener("click", function() {
-    //TODO
+    const newPost = {
+      title: "Tytul",
+      body: "Treść",
+      userId: 1
+    };
+
+    fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "POST",
+      body: JSON.stringify(newPost),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        answer.innerHTML = `
+          <div class="post">
+            <h3>${data.id}. ${data.title}</h3>
+            <p>${data.body}</p>
+          </div>
+        `;
+      })
+      .catch(error => {
+        answer.innerHTML = "Błąd";
+      });
   })
 
   cw3.addEventListener("click", function() {
