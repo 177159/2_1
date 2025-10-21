@@ -1,13 +1,11 @@
 entrypoint = "index.html"
 
 hidden = [".config"]
-
-modules = ["web", "python-3.11"]
+modules = ["nodejs-20", "web"]
 
 
 [nix]
-
-channel = "stable-23_11"
+channel = "stable-25_05"
 
 
 [deployment]
@@ -71,3 +69,6 @@ externalPort = 80
 localPort = 40667
 
 externalPort = 3000
+
+[agent]
+expertMode = true
